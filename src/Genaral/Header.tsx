@@ -1,4 +1,5 @@
-import { MenuIcon, X } from "lucide-react";
+
+import { Menu, X, Phone, Sparkles, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
@@ -6,12 +7,9 @@ import { business_name, person_name, phone_number } from "./secret";
 
 const Header = () => {
   return (
-    <header className="w-full bg-gradient-to-r from-pink-50 to-purple-100 shadow-lg top-0 z-50">
-      <TitleCTA />
-
-      <div className="px-2 md:max-w-[80%] mx-auto flex flex-col gap-6 py-2">
-        <LogoAndMenu />
-      </div>
+    <header className="w-full bg-[#faf8f3] text-[#24170f] sticky top-0 z-50 shadow-[0_4px_25px_rgba(0,0,0,0.08)]">
+      <TopBar />
+      <MainHeader />
       <ScrollingMarquee />
     </header>
   );
@@ -19,134 +17,245 @@ const Header = () => {
 
 export default Header;
 
-const TitleCTA = () => (
-  <div className="relative w-full bg-gradient-to-r from-red-500 via-orange-400 to-yellow-400">
-    <div className="w-full md:max-w-[80%] mx-auto flex items-center justify-between px-4 py-3 md:py-4">
-      {/* Left Logo/Text */}
-      <div className="flex items-center gap-3">
-        <h5 className="montserrat font-bold text-white text-sm md:text-2xl">
-          {person_name}
-        </h5>
+/* -------------------------------------------------- */
+/* TOP BAR */
+/* -------------------------------------------------- */
+
+const TopBar = () => (
+  <div className="bg-[#20120d] text-[#f6d98b]">
+    <div className="max-w-[1400px] mx-auto px-4 md:px-8 py-2 flex items-center justify-between gap-4">
+      <div className="flex items-center gap-2 min-w-0">
+        <Sparkles className="w-4 h-4 shrink-0 text-[#e8bd62]" />
+
+        <p className="open-sans text-xs md:text-sm truncate">
+          <span className="font-semibold">{person_name}</span>
+          <span className="hidden sm:inline">
+            {" "}• Trusted Astrology Guidance Since 1956
+          </span>
+        </p>
       </div>
 
-      {/* Call Now Button */}
       <a
         href={`tel:${phone_number}`}
-        className="montserrat px-3 py-2 
-  bg-gradient-to-r from-fuchsia-600 via-purple-600 to-indigo-600
-  hover:from-fuchsia-700 hover:via-purple-700 hover:to-indigo-700
-  text-white font-semibold rounded-full shadow-xl
-  transition-all duration-300 hover:scale-110 hover:shadow-2xl
-  text-sm md:text-base"
+        className="flex items-center gap-2 shrink-0 text-xs md:text-sm font-semibold hover:text-white transition-colors"
       >
-        Call Now
+        <Phone className="w-4 h-4" />
+        <span className="hidden sm:inline">Talk to Guruji</span>
+        <span className="sm:hidden">Call</span>
       </a>
     </div>
   </div>
 );
 
-const LogoAndMenu = () => (
-  <div className="py-1 flex flex-row items-center justify-between gap-2">
-    {/* Logo */}
-    <div className="flex items-center gap-1">
-      <img
-        src="https://i.pinimg.com/736x/3d/e1/f9/3de1f95bebee24bac17e12b23ea11248.jpg"
-        alt="Chamundeswari Astrology Logo"
-        className="w-16 h-16 md:w-28 md:h-28 rounded-xl shadow-xl object-cover border-2 border-purple-200"
-      />
-      <div className="flex flex-col text-center md:text-left">
-        <h1 className=" montserrat font-extrabold text-xl md:text-3xl text-gray-900">
-          {business_name}
-        </h1>
-        <p className="font-bold text-gray-500 open-sans text-sm md:text-base  mt-1">
-          Trusted Jyothish Since 1956
-        </p>
-        <p className="montserrat text-sm md:text-sm text-gray-600 mt-1">
-          Traditional guidance for life,
-          relationships, and career
-        </p>
-      </div>
-    </div>
-    <NavigationMenu />
-  </div>
-);
+/* -------------------------------------------------- */
+/* MAIN HEADER */
+/* -------------------------------------------------- */
 
-const NavigationMenu = () => {
+const MainHeader = () => {
   const [open, setOpen] = useState(false);
+
   return (
-    <div className="relative">
-      {/* Desktop Menu */}
-      <ul className="hidden lg:flex gap-10 font-medium text-gray-900 montserrat text-lg">
-        {["Home", "About", "Services", "Contact"].map((item) => (
-          <Link key={item} to={`/${item.toLowerCase()}`}>
-            <li className="hover:text-fuchsia-500 cursor-pointer transition-colors">
-              {item}
-            </li>
+    <div className="bg-[#faf8f3]">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-8">
+        <div className="min-h-[88px] md:min-h-[108px] flex items-center justify-between gap-5">
+          
+          {/* BRAND */}
+          <Link
+            to="/"
+            className="flex items-center gap-3 md:gap-4 group min-w-0"
+          >
+            <div className="relative shrink-0">
+              <div className="absolute inset-0 rounded-2xl bg-[#d4a84f] blur-md opacity-20 group-hover:opacity-40 transition-opacity" />
+
+              <img
+                src="https://i.pinimg.com/736x/2d/27/c3/2d27c37a42b775a7e44d9e2af9672953.jpg"
+                alt="Chamundeswari Astrology Logo"
+                className="relative w-14 h-14 md:w-[76px] md:h-[76px] rounded-2xl object-cover border border-[#d8b66a] shadow-lg"
+              />
+            </div>
+
+            <div className="min-w-0">
+              <div className="flex items-center gap-2">
+                <h1 className="montserrat font-extrabold text-lg sm:text-xl md:text-3xl tracking-tight text-[#2b1a12] truncate">
+                  {business_name}
+                </h1>
+              </div>
+
+              <div className="flex items-center gap-2 mt-1">
+                <span className="h-px w-6 md:w-10 bg-[#c99b3b]" />
+
+                <p className="open-sans text-[10px] sm:text-xs md:text-sm font-semibold tracking-wide text-[#80633a]">
+                  TRADITION • WISDOM • GUIDANCE
+                </p>
+              </div>
+
+              <p className="hidden sm:block open-sans text-xs md:text-sm text-[#74675e] mt-1">
+                Traditional guidance for love, marriage, career & life
+              </p>
+            </div>
           </Link>
-        ))}
-      </ul>
 
-      {/* Mobile Menu Button */}
-      <button
-        className="lg:hidden p-2 
-  bg-gradient-to-r from-amber-400 via-rose-500 to-purple-600
-  hover:from-amber-500 hover:via-rose-600 hover:to-purple-700
-  shadow-lg rounded-md transition-transform duration-300 hover:scale-110"
-        onClick={() => setOpen(!open)}
-      >
-        <MenuIcon className="w-8 h-8 text-white" strokeWidth={2} />
-      </button>
+          {/* DESKTOP NAVIGATION */}
+          <nav className="hidden lg:flex items-center gap-2">
+            {["Home", "About", "Services", "Contact"].map((item) => (
+              <Link
+                key={item}
+                to={`/${item.toLowerCase()}`}
+                className="px-4 py-3 rounded-xl montserrat text-sm font-semibold text-[#49352b] hover:bg-[#f1e7d3] hover:text-[#9b6817] transition-all duration-200"
+              >
+                {item}
+              </Link>
+            ))}
 
+            {/* CTA */}
+            <a
+              href={`tel:${phone_number}`}
+              className="ml-3 flex items-center gap-2 px-5 py-3 rounded-xl bg-[#8b1e1e] text-white montserrat text-sm font-bold shadow-lg shadow-red-900/15 hover:bg-[#711616] hover:-translate-y-0.5 transition-all"
+            >
+              <Phone className="w-4 h-4" />
+              Consult Now
+            </a>
+          </nav>
+
+          {/* MOBILE MENU BUTTON */}
+          <button
+            onClick={() => setOpen(true)}
+            aria-label="Open menu"
+            className="lg:hidden shrink-0 w-11 h-11 rounded-xl border border-[#d8c8aa] bg-white flex items-center justify-center text-[#6f4018] shadow-sm hover:bg-[#f7efe1] transition"
+          >
+            <Menu className="w-6 h-6" />
+          </button>
+        </div>
+      </div>
+
+      {/* MOBILE MENU */}
       {open && <MobileNav setOpen={setOpen} />}
     </div>
   );
 };
 
-const MobileNav = ({ setOpen }: { setOpen: (open: boolean) => void }) => (
-  <div className="fixed inset-0 z-50 bg-white p-8 flex flex-col justify-between shadow-2xl animate-slide-in">
-    <div>
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="montserrat text-2xl font-bold text-gray-900">
-         {business_name} 
-        </h1>
-        <button
-          onClick={() => setOpen(false)}
-          className="p-2 bg-gradient-to-r from-fuchsia-500 to-violet-600 rounded-full shadow-lg hover:scale-105 transition-transform"
-        >
-          <X className="w-6 h-6 text-white" />
-        </button>
+/* -------------------------------------------------- */
+/* MOBILE NAVIGATION */
+/* -------------------------------------------------- */
+
+const MobileNav = ({
+  setOpen,
+}: {
+  setOpen: (open: boolean) => void;
+}) => (
+  <div className="fixed inset-0 z-[100] bg-[#faf8f3] flex flex-col">
+    
+    {/* Mobile Header */}
+    <div className="px-5 py-5 border-b border-[#e8dfd0] flex items-center justify-between">
+      <div className="flex items-center gap-3">
+        <img
+          src="https://i.pinimg.com/736x/3d/e1/f9/3de1f95bebee24bac17e12b23ea11248.jpg"
+          alt="Logo"
+          className="w-12 h-12 rounded-xl object-cover border border-[#d8b66a]"
+        />
+
+        <div>
+          <h2 className="montserrat font-bold text-lg text-[#2b1a12]">
+            {business_name}
+          </h2>
+          <p className="open-sans text-xs text-[#80633a]">
+            Since 1956
+          </p>
+        </div>
       </div>
-      <ul className="flex flex-col gap-5 font-medium montserrat text-lg">
-        {["Home", "About", "Services", "Contact"].map((item) => (
+
+      <button
+        onClick={() => setOpen(false)}
+        aria-label="Close menu"
+        className="w-11 h-11 rounded-xl bg-[#20120d] text-[#f6d98b] flex items-center justify-center"
+      >
+        <X className="w-6 h-6" />
+      </button>
+    </div>
+
+    {/* Mobile Links */}
+    <div className="flex-1 px-5 py-8">
+      <p className="open-sans text-xs font-bold tracking-[0.2em] text-[#a17a35] mb-5">
+        EXPLORE
+      </p>
+
+      <nav className="flex flex-col">
+        {["Home", "About", "Services", "Contact"].map((item, index) => (
           <Link
             key={item}
             to={`/${item.toLowerCase()}`}
             onClick={() => setOpen(false)}
+            className="group flex items-center justify-between py-5 border-b border-[#e9e0d2]"
           >
-            <li className="hover:text-fuchsia-500 cursor-pointer transition-colors">
-              {item}
-            </li>
+            <div className="flex items-center gap-4">
+              <span className="text-xs font-bold text-[#b18a49]">
+                0{index + 1}
+              </span>
+
+              <span className="montserrat text-xl font-semibold text-[#35231a] group-hover:text-[#9b6817] transition-colors">
+                {item}
+              </span>
+            </div>
+
+            <ChevronRight className="w-5 h-5 text-[#bda77e] group-hover:text-[#9b6817] group-hover:translate-x-1 transition-all" />
           </Link>
         ))}
-      </ul>
+      </nav>
+
+      {/* Mobile CTA */}
+      <a
+        href={`tel:${phone_number}`}
+        className="mt-8 flex items-center justify-center gap-3 w-full py-4 rounded-xl bg-[#8b1e1e] text-white montserrat font-bold shadow-xl"
+      >
+        <Phone className="w-5 h-5" />
+        Call for Consultation
+      </a>
     </div>
-    <p className="open-sans text-gray-700 text-xl mt-6">
-      <b className="text-red-700">Pandith Raghavendra Guruji</b> - Horoscope
-      readings, match-making, career predictions, and spiritual guidance for
-      confident living.
-    </p>
+
+    {/* Bottom Trust Section */}
+    <div className="px-5 py-6 bg-[#20120d] text-[#f6d98b]">
+      <div className="flex items-center gap-3">
+        <Sparkles className="w-5 h-5 shrink-0" />
+
+        <p className="open-sans text-sm leading-6">
+          Guidance for love, marriage, career, family and important life
+          decisions.
+        </p>
+      </div>
+    </div>
   </div>
 );
 
+/* -------------------------------------------------- */
+/* SCROLLING MESSAGE */
+/* -------------------------------------------------- */
+
 const ScrollingMarquee = () => (
-  <div className="overflow-hidden bg-gray-900">
+  <div className="overflow-hidden bg-[#8b1e1e] border-t border-[#a73535]">
     <Marquee
-      speed={60}
-      className="whitespace-nowrap text-fuchsia-400 font-bold py-2 open-sans text-base md:text-lg"
+      speed={45}
       gradient={false}
+      className="whitespace-nowrap py-2.5"
     >
-      Facing Love Breakup, Relationship Problems, or Marriage Disputes? Book a
-      Consultation with an Experienced Astrologer Today!
+      <span className="open-sans text-xs md:text-sm font-semibold text-[#fff4d6] tracking-wide">
+        ✦ Love & Relationship Guidance
+        <span className="mx-8 text-[#e5bd67]">•</span>
+
+        Marriage & Match Making
+        <span className="mx-8 text-[#e5bd67]">•</span>
+
+        Career & Business Predictions
+        <span className="mx-8 text-[#e5bd67]">•</span>
+
+        Horoscope Consultation
+        <span className="mx-8 text-[#e5bd67]">•</span>
+
+        Spiritual Guidance
+        <span className="mx-8 text-[#e5bd67]">•</span>
+
+        Trusted Guidance Since 1956
+        <span className="mx-8 text-[#e5bd67]">✦</span>
+      </span>
     </Marquee>
   </div>
 );

@@ -1,8 +1,17 @@
 "use client";
+
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
-import { ChevronLeft, Phone, MessageCircle } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Phone,
+  MessageCircle,
+  Sparkles,
+  ArrowRight,
+} from "lucide-react";
 import { useCallback } from "react";
+import { Link } from "react-router-dom";
 import { phone_number, whatsapp_number } from "./secret";
 
 const CardCarousel = () => {
@@ -12,135 +21,285 @@ const CardCarousel = () => {
       align: "center",
       skipSnaps: false,
       containScroll: "trimSnaps",
-      dragFree: true,
     },
-    [Autoplay({ delay: 5000, stopOnInteraction: false })]
+    [
+      Autoplay({
+        delay: 4500,
+        stopOnInteraction: false,
+        stopOnMouseEnter: true,
+      }),
+    ]
   );
 
-  // useEffect(() => {
-  //   if (!emblaApi) return;
+  const scrollPrev = useCallback(() => {
+    emblaApi?.scrollPrev();
+  }, [emblaApi]);
 
-  //   let rafId: number;
+  const scrollNext = useCallback(() => {
+    emblaApi?.scrollNext();
+  }, [emblaApi]);
 
-  //   const linearScroll = () => {
-  //     (emblaApi as any).scrollBy(0.002, false); // very small scroll increment
-  //     rafId = requestAnimationFrame(linearScroll);
-  //   };
-
-  //   linearScroll();
-
-  //   return () => cancelAnimationFrame(rafId);
-  // }, [emblaApi]);
-
-  const scrollPrev = useCallback(
-    () => emblaApi && emblaApi.scrollPrev(),
-    [emblaApi]
-  );
-  const scrollNext = useCallback(
-    () => emblaApi && emblaApi.scrollNext(),
-    [emblaApi]
-  );
-
- const cards = [
-  {
-    title: "Love & Relationship Guidance",
-    desc: "Get spiritual guidance for relationship concerns, misunderstandings, emotional connection, and restoring harmony in your love life.",
-    img: "https://i.pinimg.com/736x/9e/62/89/9e6289902fb93c22b7245c4a72ab355d.jpg",
-  },
-  {
-    title: "Spiritual Reading",
-    desc: "Explore spiritual insights for love, marriage, career, finances, and important life decisions with personalized guidance.",
-    img: "https://i.pinimg.com/736x/d1/7b/6e/d17b6e6bbe4cb76812aea53029b0182d.jpg",
-  },
-  {
-    title: "Business Guidance",
-    desc: "Receive spiritual guidance for business challenges, career decisions, growth opportunities, and creating a positive direction.",
-    img: "https://i.pinimg.com/736x/84/dd/e6/84dde6e4a1641f19a2f53577ec4b9f4c.jpg",
-  },
-];
+  const cards = [
+    {
+      number: "01",
+      title: "Love & Relationship Guidance",
+      shortTitle: "Love & Relationships",
+      desc: "Thoughtful guidance for relationship concerns, misunderstandings, emotional connection and harmony in your love life.",
+      img: "https://i.pinimg.com/736x/5e/74/25/5e7425172b397ad5e9f4073db1410636.jpg"
+    },
+    {
+      number: "02",
+      title: "Spiritual Reading",
+      shortTitle: "Spiritual Reading",
+      desc: "Explore traditional spiritual insights for love, marriage, career, finances and important life decisions.",
+      img: "https://i.pinimg.com/736x/89/7f/ab/897fab251dd39b6b5ff06a7e097a5a46.jpg"
+    },
+    {
+      number: "03",
+      title: "Business Guidance",
+      shortTitle: "Business & Career",
+      desc: "Guidance for business challenges, career decisions, growth opportunities and creating a positive direction.",
+      img: "https://i.pinimg.com/736x/0a/51/03/0a51033f2bba92f3b24fb5a7108415a4.jpg"
+    },
+  ];
 
   return (
-    <div className="relative w-full  ">
-      {/* Main Gradient Background */}
-      {/* <div className="absolute inset-0 bg-gradient-to-tr from-purple-800 via-red-600 to-orange-500 rounded-3xl shadow-2xl -z-20"></div> */}
+    <section className="relative overflow-hidden bg-[#f7f3eb] py-16 md:py-24">
 
-      {/* Top Feathered Gradient */}
-      {/* <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white/50 via-white/0 to-transparent pointer-events-none z-10 rounded-t-3xl"></div> */}
+      {/* ======================================== */}
+      {/* BACKGROUND DECORATION */}
+      {/* ======================================== */}
 
-      {/* Bottom Feathered Gradient */}
-      {/* <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white/50 via-white/0 to-transparent pointer-events-none z-10 rounded-b-3xl"></div> */}
+      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full bg-[#c9a45b]/8 blur-3xl" />
 
-      {/* Carousel Container */}
-      <div className="w-full overflow-hidden relative z-20" ref={emblaRef}>
-        <div className="flex relative h-[650px] items-center  w-full">
-          {cards.map((card, index) => (
+      <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-[#8b1e1e]/5 blur-3xl" />
+
+      <div className="absolute top-20 right-10 hidden lg:block w-28 h-28 rounded-full border border-[#c9a45b]/20" />
+
+      <div className="absolute bottom-20 left-10 hidden lg:block w-20 h-20 rounded-full border border-[#c9a45b]/20" />
+
+      {/* ======================================== */}
+      {/* SECTION HEADING */}
+      {/* ======================================== */}
+
+      <div className="relative z-10 max-w-3xl mx-auto px-5 text-center mb-10 md:mb-14">
+
+        <div className="flex items-center justify-center gap-2 mb-4">
+
+          <Sparkles className="w-4 h-4 text-[#b28535]" />
+
+          <span className="open-sans text-xs md:text-sm font-bold tracking-[0.22em] text-[#96702f]">
+            PERSONALIZED GUIDANCE
+          </span>
+
+          <Sparkles className="w-4 h-4 text-[#b28535]" />
+
+        </div>
+
+        <h2 className="montserrat text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#291911] leading-tight">
+          Guidance For Your
+          <span className="block text-[#8b1e1e]">
+            Important Life Decisions
+          </span>
+        </h2>
+
+        <div className="flex items-center justify-center gap-3 my-5">
+
+          <span className="w-16 h-[2px] bg-[#c9a45b]" />
+
+          <span className="w-2 h-2 rotate-45 bg-[#c9a45b]" />
+
+          <span className="w-16 h-[2px] bg-[#c9a45b]" />
+
+        </div>
+
+        <p className="open-sans text-base md:text-lg leading-7 text-[#6d5e52]">
+          Explore traditional astrology and spiritual guidance for
+          relationships, personal growth, career and life.
+        </p>
+
+      </div>
+
+      {/* ======================================== */}
+      {/* CAROUSEL */}
+      {/* ======================================== */}
+
+      <div className="relative z-10 w-full overflow-hidden" ref={emblaRef}>
+
+        <div className="flex items-stretch">
+
+          {cards.map((card) => (
             <div
-              key={index}
-              className="flex-[0_0_100%] sm:flex-[0_0_100%] md:flex-[0_0_33%] px-4 rounded-2xl"
+              key={card.number}
+              className="flex-[0_0_92%] sm:flex-[0_0_70%] md:flex-[0_0_46%] lg:flex-[0_0_34%] px-3 md:px-4"
             >
-              <div className="relative bg-gradient-to-b from-pink-200 via-purple-300 to-indigo-200 rounded-3xl shadow-xl p-8 text-gray-900 h-[520px] flex flex-col items-center text-center transition transform hover:-translate-y-3 hover:shadow-2xl duration-500">
-                {/* Soft Blurred Chakra / Background */}
-                <div className="absolute -top-10 -z-10 w-60 h-60 rounded-full bg-purple-400 opacity-20 blur-3xl animate-spin-slow"></div>
 
-                {/* Circular Image with subtle glow */}
-                <div className="w-30 h-30 rounded-full border-2 border-purple-500 overflow-hidden shadow-md mb-6 ring-4 ring-purple-100">
+              {/* CARD */}
+              <article className="group relative h-full min-h-[530px] bg-white rounded-[28px] overflow-hidden border border-[#e3d7c5] shadow-[0_12px_40px_rgba(52,35,22,0.10)] hover:shadow-[0_20px_55px_rgba(52,35,22,0.17)] transition-all duration-500">
+
+                {/* -------------------------------- */}
+                {/* IMAGE */}
+                {/* -------------------------------- */}
+
+                <div className="relative h-60 md:h-64 overflow-hidden">
+
                   <img
                     src={card.img}
                     alt={card.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
+
+                  {/* Image overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#20120d]/75 via-[#20120d]/10 to-transparent" />
+
+                  {/* Number */}
+                  <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-[#20120d]/80 backdrop-blur-md border border-[#e0bd68]/50 flex items-center justify-center">
+                    <span className="text-xs font-bold text-[#f1d58b]">
+                      {card.number}
+                    </span>
+                  </div>
+
+                  {/* Category */}
+                  <div className="absolute bottom-4 left-5">
+
+                    <span className="px-3 py-1.5 rounded-full bg-[#20120d]/75 backdrop-blur-md border border-[#e0bd68]/30 text-xs font-semibold text-[#f4dda0]">
+                      {card.shortTitle}
+                    </span>
+
+                  </div>
+
                 </div>
 
-                {/* Text Content */}
-                <h3 className="text-3xl md:text-3xl font-bold mb-3 poppins text-purple-900">
-                  {card.title}
-                </h3>
-                <p className="text-lg md:text-lg open-sans leading-relaxed text-purple-800 opacity-90">
-                  {card.desc}
-                </p>
+                {/* -------------------------------- */}
+                {/* CONTENT */}
+                {/* -------------------------------- */}
 
-                {/* Buttons */}
-                <div className="mt-6 flex gap-1">
-                  {/* Call Button */}
-                  <a
-                    href={`tel:${phone_number}`}
-                    className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-5 py-1 sm:px-5 sm:py-1 rounded-full flex items-center  font-semibold shadow-lg hover:scale-105 hover:shadow-2xl transition transform duration-300"
-                  >
-                    <Phone size={18} />
-                    <h5 className="text-sm">Call</h5>
-                  </a>
+                <div className="p-6 md:p-7 flex flex-col h-[266px]">
 
-                  {/* WhatsApp Button */}
-                 <a
-  href={`https://wa.me/${whatsapp_number}`}
-  target="_blank"
-  rel="noreferrer"
-  className="bg-gradient-to-r from-green-400 to-green-600 text-white px-10 py-4 rounded-full flex items-center gap-2 font-semibold shadow-lg hover:scale-105 hover:shadow-2xl transition transform duration-300"
->
-  <MessageCircle size={18} />
-  <h5 className="text-sm">WhatsApp</h5>
-</a>
+                  <div className="flex items-center gap-2 mb-3">
+
+                    <span className="w-7 h-px bg-[#c9a45b]" />
+
+                    <span className="text-[10px] tracking-[0.18em] font-bold text-[#a37a32]">
+                      TRADITIONAL GUIDANCE
+                    </span>
+
+                  </div>
+
+                  <h3 className="montserrat text-xl md:text-2xl font-extrabold text-[#2d1b12] leading-snug">
+                    {card.title}
+                  </h3>
+
+                  <p className="open-sans mt-3 text-sm md:text-[15px] leading-6 text-[#716257]">
+                    {card.desc}
+                  </p>
+
+                  {/* Bottom actions */}
+                  <div className="mt-auto flex items-center justify-between gap-3">
+
+                    <Link
+                      to="/services"
+                      className="inline-flex items-center gap-1.5 text-sm font-bold text-[#8b1e1e] hover:text-[#b17c29] transition-colors"
+                    >
+                      Learn More
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+
+                    <a
+                      href={`tel:${phone_number}`}
+                      className="w-10 h-10 rounded-full bg-[#f5ede0] flex items-center justify-center text-[#8b1e1e] hover:bg-[#8b1e1e] hover:text-white transition-all"
+                      aria-label="Call for consultation"
+                    >
+                      <Phone className="w-4 h-4" />
+                    </a>
+
+                  </div>
+
                 </div>
-              </div>
+
+              </article>
+
             </div>
           ))}
+
         </div>
       </div>
 
-      {/* Navigation Buttons */}
-      <button
-        onClick={scrollPrev}
-        className="absolute left-6 top-1/2 bg-white/90 text-purple-700 p-3 rounded-full shadow-lg hover:scale-110 transition z-30"
-      >
-        <ChevronLeft size={22} strokeWidth={3} />
-      </button>
-      <button
-        onClick={scrollNext}
-        className="absolute right-6 top-1/2 bg-white/90 text-purple-700 p-3 rounded-full shadow-lg hover:scale-110 transition z-30"
-      >
-        <ChevronLeft className="rotate-180" size={22} strokeWidth={3} />
-      </button>
-    </div>
+      {/* ======================================== */}
+      {/* NAVIGATION */}
+      {/* ======================================== */}
+
+      <div className="relative z-20 flex items-center justify-center gap-3 mt-8">
+
+        <button
+          onClick={scrollPrev}
+          aria-label="Previous service"
+          className="w-11 h-11 rounded-full bg-white border border-[#dfd2bf] text-[#6f4a24] flex items-center justify-center shadow-md hover:bg-[#20120d] hover:text-[#f1d58b] hover:border-[#20120d] transition-all"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+
+        <div className="px-4 text-xs font-semibold text-[#8b7766]">
+          Explore Our Guidance
+        </div>
+
+        <button
+          onClick={scrollNext}
+          aria-label="Next service"
+          className="w-11 h-11 rounded-full bg-white border border-[#dfd2bf] text-[#6f4a24] flex items-center justify-center shadow-md hover:bg-[#20120d] hover:text-[#f1d58b] hover:border-[#20120d] transition-all"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+
+      </div>
+
+      {/* ======================================== */}
+      {/* BOTTOM CTA */}
+      {/* ======================================== */}
+
+      <div className="relative z-10 max-w-4xl mx-auto px-5 mt-12">
+
+        <div className="rounded-2xl bg-[#20120d] border border-[#c9a45b]/20 px-6 py-6 md:px-8 flex flex-col sm:flex-row items-center justify-between gap-5">
+
+          <div className="text-center sm:text-left">
+
+            <p className="montserrat text-base md:text-lg font-bold text-[#fff6e5]">
+              Need personal guidance?
+            </p>
+
+            <p className="text-xs md:text-sm text-[#bcae9e] mt-1">
+              Speak directly with an experienced astrologer.
+            </p>
+
+          </div>
+
+          <div className="flex gap-3 shrink-0">
+
+            <a
+              href={`tel:${phone_number}`}
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#8b1e1e] text-white text-sm font-bold hover:bg-[#a22727] transition-all"
+            >
+              <Phone className="w-4 h-4" />
+              Call Now
+            </a>
+
+            <a
+              href={`https://wa.me/91${whatsapp_number}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-[#c9a45b]/50 text-[#f0d68f] text-sm font-bold hover:bg-[#c9a45b]/10 transition-all"
+            >
+              <MessageCircle className="w-4 h-4" />
+              WhatsApp
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
   );
 };
 

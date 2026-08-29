@@ -1,5 +1,11 @@
-import { Quote } from "lucide-react";
-import { person_name } from "./secret";
+import {
+  Quote,
+  Star,
+  MapPin,
+  Sparkles,
+  MessageCircle,
+} from "lucide-react";
+import { person_name, whatsapp_number } from "./secret";
 
 const testimonials = [
   {
@@ -14,7 +20,6 @@ const testimonials = [
     image: "https://astrologerdeepaksharma.in/images/client-1.png",
     text: `I'm appreciative of Pandith ${person_name}. For me, his prophecies come true. The fact that he is constantly there to lead me makes me feel lucky. It was great for me.`,
   },
-
   {
     name: "Pratha Kumari",
     location: "Delhi",
@@ -40,7 +45,7 @@ const testimonials = [
     location: "Ahmedabad",
     image:
       "https://i.pinimg.com/736x/7e/46/c6/7e46c6d2798eff446b365c5246f4c9ca.jpg",
-    text: "I faced unexpected financial hurdles. With ${person_name} Ji's guidance, my situation turned around and I regained stability.",
+    text: `I faced unexpected financial hurdles. With ${person_name} Ji's guidance, my situation turned around and I regained stability.`,
   },
   {
     name: "Divya Sharma",
@@ -88,52 +93,223 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="relative bg-gradient-to-br from-pink-50 via-orange-50 to-yellow-100 py-20 px-6 overflow-hidden">
-      {/* Decorative background glow */}
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10"></div>
+    <section className="relative overflow-hidden bg-[#21140e] py-16 md:py-24 px-5">
 
-      <div className="relative max-w-7xl mx-auto text-center">
-        {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-red-600 via-pink-600 to-orange-500 bg-clip-text text-transparent drop-shadow-lg">
-          ✨ Client Testimonials ✨
-        </h2>
-        <p className="mt-4 text-gray-700 text-lg max-w-2xl mx-auto">
-          Real experiences from people who found solutions with{" "}
-          <span className="font-semibold text-red-600">{person_name}</span>.
-        </p>
+      {/* ======================================== */}
+      {/* BACKGROUND DECORATION */}
+      {/* ======================================== */}
 
-        {/* Cards Grid */}
-        <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <div
-              key={i}
-              className="relative group bg-white/80 backdrop-blur-md rounded-3xl shadow-lg p-8 hover:shadow-2xl transition-all duration-500 border border-pink-200 hover:scale-105"
+      <div className="absolute -top-52 -right-52 w-[600px] h-[600px] rounded-full bg-[#c9a45b]/8 blur-3xl" />
+
+      <div className="absolute -bottom-52 -left-52 w-[600px] h-[600px] rounded-full bg-[#8b1e1e]/10 blur-3xl" />
+
+      <div className="absolute top-24 left-[5%] hidden lg:block w-28 h-28 rounded-full border border-[#c9a45b]/15" />
+
+      <div className="absolute bottom-24 right-[5%] hidden lg:block w-20 h-20 rounded-full border border-[#c9a45b]/15" />
+
+      <div className="relative z-10 max-w-[1400px] mx-auto">
+
+        {/* ======================================== */}
+        {/* HEADER */}
+        {/* ======================================== */}
+
+        <div className="max-w-3xl mx-auto text-center">
+
+          <div className="flex items-center justify-center gap-2 mb-4">
+
+            <Sparkles className="w-4 h-4 text-[#dfbd6b]" />
+
+            <span className="text-xs md:text-sm font-bold tracking-[0.22em] text-[#d5b260]">
+              CLIENT EXPERIENCES
+            </span>
+
+            <Sparkles className="w-4 h-4 text-[#dfbd6b]" />
+
+          </div>
+
+          <h2 className="montserrat text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#fff8e9] leading-tight">
+
+            Words From People
+            <span className="block text-[#e1be68]">
+              We've Guided
+            </span>
+
+          </h2>
+
+          <div className="flex items-center justify-center gap-3 my-6">
+
+            <span className="w-16 h-px bg-[#c9a45b]" />
+
+            <span className="w-2 h-2 rotate-45 bg-[#c9a45b]" />
+
+            <span className="w-16 h-px bg-[#c9a45b]" />
+
+          </div>
+
+          <p className="open-sans text-sm md:text-base leading-7 text-[#c8b9aa]">
+            Read experiences shared by people who sought personal,
+            relationship, family, career and spiritual guidance.
+          </p>
+
+        </div>
+
+        {/* ======================================== */}
+        {/* TESTIMONIAL GRID */}
+        {/* ======================================== */}
+
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+
+          {testimonials.map((testimonial, index) => (
+            <article
+              key={`${testimonial.name}-${index}`}
+              className={`group relative overflow-hidden rounded-[26px] border border-[#d2b56d]/15 bg-[#faf7f0] p-6 md:p-7 shadow-[0_15px_45px_rgba(0,0,0,0.20)] hover:-translate-y-2 hover:border-[#d2b56d]/40 hover:shadow-[0_22px_55px_rgba(0,0,0,0.28)] transition-all duration-500 ${
+                index === 0
+                  ? "lg:col-span-2"
+                  : ""
+              }`}
             >
-              {/* Avatar */}
-              <div className="relative w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-red-500 shadow-md">
-                <img
-                  src={t.image}
-                  alt={t.name}
-                  className="w-full h-full object-cover"
+
+              {/* Gold top line */}
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#c9a45b] to-transparent opacity-70" />
+
+              {/* Large Quote */}
+              <div className="absolute top-5 right-6">
+
+                <Quote
+                  className="w-12 h-12 text-[#d7c49c]/45 group-hover:text-[#c9a45b]/50 transition-colors"
+                  strokeWidth={1.5}
                 />
-                <span className="absolute bottom-0 right-0 top-0 left-0   backdrop-blur-xs rounded-full border-4 border-red-600"></span>
+
               </div>
 
-              {/* Name */}
-              <h3 className="mt-5 text-xl font-bold text-gray-900">{t.name}</h3>
-              <span className="text-sm text-gray-500">{t.location}</span>
+              {/* ================================= */}
+              {/* USER */}
+              {/* ================================= */}
 
-              {/* Testimonial Text */}
-              <p className="mt-4 text-gray-700 leading-relaxed italic">
-                "{t.text}"
+              <div className="flex items-center gap-4">
+
+                <div className="relative shrink-0">
+
+                  <div className="w-16 h-16 rounded-full p-[2px] bg-[#c9a45b]">
+
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      loading="lazy"
+                      className="w-full h-full rounded-full object-cover"
+                    />
+
+                  </div>
+
+                  {/* Online indicator */}
+                  <div className="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-[#8b1e1e] border-2 border-[#faf7f0]" />
+
+                </div>
+
+                <div>
+
+                  <h3 className="montserrat text-base font-extrabold text-[#2c1a11]">
+                    {testimonial.name}
+                  </h3>
+
+                  <div className="flex items-center gap-1 mt-1">
+
+                    <MapPin className="w-3 h-3 text-[#a27a32]" />
+
+                    <span className="text-xs text-[#85766a]">
+                      {testimonial.location}
+                    </span>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              {/* ================================= */}
+              {/* STARS */}
+              {/* ================================= */}
+
+              <div className="flex items-center gap-0.5 mt-5">
+
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <Star
+                    key={star}
+                    className="w-3.5 h-3.5 fill-[#c49b48] text-[#c49b48]"
+                  />
+                ))}
+
+              </div>
+
+              {/* ================================= */}
+              {/* TEXT */}
+              {/* ================================= */}
+
+              <p
+                className={`mt-4 open-sans text-[14px] leading-7 text-[#62564c] ${
+                  index === 0
+                    ? "lg:text-[15px] lg:leading-8"
+                    : ""
+                }`}
+              >
+                “{testimonial.text}”
               </p>
 
-              {/* Quote Icon */}
-              <Quote className="absolute top-6 right-6 text-red-200 w-10 h-10 group-hover:scale-110 transition-transform" />
-            </div>
+              {/* ================================= */}
+              {/* FOOTER */}
+              {/* ================================= */}
+
+              <div className="mt-6 pt-4 border-t border-[#e4d9c8] flex items-center justify-between">
+
+                <span className="text-[9px] tracking-[0.18em] font-bold text-[#a17a37]">
+                  VERIFIED EXPERIENCE
+                </span>
+
+                <span className="w-7 h-[2px] bg-[#c9a45b]" />
+
+              </div>
+
+            </article>
           ))}
+
         </div>
+
+        {/* ======================================== */}
+        {/* BOTTOM CTA */}
+        {/* ======================================== */}
+
+        <div className="mt-12 flex justify-center">
+
+          <div className="flex flex-col sm:flex-row items-center gap-5 bg-[#2b1a12] border border-[#c9a45b]/20 rounded-2xl px-6 md:px-8 py-5 shadow-xl">
+
+            <div className="text-center sm:text-left">
+
+              <p className="montserrat text-base font-bold text-[#fff8e9]">
+                Looking for personal guidance?
+              </p>
+
+              <p className="text-xs text-[#b9aa9b] mt-1">
+                Speak with us privately about your concerns.
+              </p>
+
+            </div>
+
+            <a
+              href={`https://wa.me/${whatsapp_number}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#8b1e1e] text-white text-sm font-bold hover:bg-[#a42828] hover:-translate-y-0.5 transition-all"
+            >
+              <MessageCircle className="w-4 h-4" />
+              Start a Conversation
+            </a>
+
+          </div>
+
+        </div>
+
       </div>
+
     </section>
   );
 }
