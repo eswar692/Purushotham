@@ -20,6 +20,7 @@ import { business_name, person_name, phone_number, whatsapp_number } from "../Ge
 import ProblemGrid from "../Genaral/ProblemGrid";
 import { Link } from "react-router-dom";
 import GoogleMapSection from "../Genaral/MapComponent";
+import GurujiVideo from "../Genaral/gurujivideo";
 
 const Home = () => {
   return (
@@ -30,6 +31,7 @@ const Home = () => {
 "
     >
       <Carousel />
+      <GurujiVideo/>
       <ProblemGrid/>
         <GoogleMapSection/>
       <CardCarousel />

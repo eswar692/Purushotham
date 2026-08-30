@@ -326,7 +326,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="font-semibold text-[#d8b568] hover:text-[#f3d98b] transition-colors"
             >
-              Eswar • Pro Daddy Agency
+              Eswar 
             </a>
           </p>
 

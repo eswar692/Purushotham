@@ -241,7 +241,7 @@ const ScrollingMarquee = () => (
         ✦ Love & Relationship Guidance
         <span className="mx-8 text-[#e5bd67]">•</span>
 
-        Marriage & Match Making
+        wife Husband Issues
         <span className="mx-8 text-[#e5bd67]">•</span>
 
         Career & Business Predictions
@@ -251,6 +251,15 @@ const ScrollingMarquee = () => (
         <span className="mx-8 text-[#e5bd67]">•</span>
 
         Spiritual Guidance
+        <span className="mx-8 text-[#e5bd67]">•</span>
+
+         Black Magic Removal
+        <span className="mx-8 text-[#e5bd67]">•</span>
+
+         Ex-Love Back
+        <span className="mx-8 text-[#e5bd67]">•</span>
+
+         Vashikarana
         <span className="mx-8 text-[#e5bd67]">•</span>
 
         Trusted Guidance Since 1956

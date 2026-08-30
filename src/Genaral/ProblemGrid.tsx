@@ -75,6 +75,31 @@ export default function ProblemGrid() {
       img: "https://i.pinimg.com/736x/43/8a/12/438a12dde5f045a8a6a4a25b1b1cccce.jpg",
       desc: "Traditional pujas, mantras and spiritual practices for personal guidance.",
     },
+    {
+      title: "Black Magic Removal",
+      img: "https://i.pinimg.com/1200x/35/67/5f/35675f87b2525d2f62d41bcabc9830d5.jpg",
+      desc: "Traditional spiritual guidance and puja practices for people seeking peace, positivity and relief from spiritual concerns.",
+    },
+    {
+      title: "Ex Love Back",
+      img: "https://i.pinimg.com/736x/24/e0/2f/24e02fb2fe0229a05a12409e1bd6d6e9.jpg",
+      desc: "Supportive guidance for people dealing with separation, unresolved emotions and relationship concerns.",
+    },
+    {
+      title: "Career Problems",
+      img: "https://i.pinimg.com/736x/0b/5c/6b/0b5c6bf6e6d5dee9459a72e06c90ac7e.jpg",
+      desc: "Personalized guidance for career uncertainty, workplace challenges, professional decisions and future opportunities.",
+    },
+    {
+      title: "Kids Problems",
+      img: "https://i.pinimg.com/736x/7a/4f/23/7a4f235908e34cba5b1340af7fae18be.jpg",
+      desc: "Supportive guidance for parents dealing with communication, education, behaviour and family-related concerns.",
+    },
+    {
+      title: "Divorce & Marriage Guidance",
+      img: "https://i.pinimg.com/736x/e1/ee/1d/e1ee1db8fe6292204a6e01d7a06b65c0.jpg",
+      desc: "Traditional guidance for couples facing serious marital disagreements, communication difficulties and separation concerns.",
+    },
   ];
 
   return (
