@@ -331,7 +331,7 @@ export default function Footer() {
           </p>
 
           <a
-            href="https://famouspoduval.in"
+            href="https://www.astrologercenter.in/"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-1 text-xs text-[#85776c] hover:text-[#d8b568] transition-colors"
