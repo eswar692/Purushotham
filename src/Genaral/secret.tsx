@@ -1,7 +1,7 @@
 export const phone_number = "+919902306511"
 export const whatsapp_number = "919902306511"
 
-export const business_name = "ಕೊಳ್ಳೇಗಾಲ ಜ್ಯೋತಿಷ್ಯರು"
+export const business_name = "ಕೇರಳ ಕೊಳ್ಳೇಗಾಲದ ಮಾಂತ್ರಿಕ ಜ್ಯೋತಿಷ್ಯರು"
 export const person_name = "Pandith Purushotham"
 
 export const email_address = "";

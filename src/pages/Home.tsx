@@ -21,6 +21,7 @@ import ProblemGrid from "../Genaral/ProblemGrid";
 import { Link } from "react-router-dom";
 import GoogleMapSection from "../Genaral/MapComponent";
 import GurujiVideo from "../Genaral/gurujivideo";
+import KannadaAstrologer from "../Genaral/Paragraph";
 
 const Home = () => {
   return (
@@ -31,8 +32,11 @@ const Home = () => {
 "
     >
       <Carousel />
+      <KannadaAstrologer/>
       <GurujiVideo/>
+      
       <ProblemGrid/>
+      
         <GoogleMapSection/>
       <CardCarousel />
       <Problems />

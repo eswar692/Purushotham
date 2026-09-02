@@ -26,35 +26,48 @@ export default function Carousel() {
   const slides = [
     {
       id: 1,
-      img: "https://i.pinimg.com/736x/9e/1f/9e/9e1f9ee154cdc86962a0747c081cb109.jpg"
+      img: "https://i.pinimg.com/736x/9e/1f/9e/9e1f9ee154cdc86962a0747c081cb109.jpg",
+      title:business_name
     },
     {
       id: 2,
-      img: "https://i.pinimg.com/736x/7a/8d/9f/7a8d9f56634bf50b55e371c60defb1ce.jpg"
+      img: "https://i.pinimg.com/736x/7a/8d/9f/7a8d9f56634bf50b55e371c60defb1ce.jpg",
+      title:"ಸ್ತ್ರೀ-ಪುರುಷ ವಶೀಕರಣ"
     },
     {
       id: 3,
       img: "https://i.pinimg.com/1200x/f1/8e/c5/f18ec5f77c36d2bd82804180365c7608.jpg",
+      title:"ಸಂತಾನದೋಷ"
     },
     {
       id: 4,
       img: "https://i.pinimg.com/736x/8d/95/ff/8d95fff806cac0d2308fcd7e60d4dab2.jpg",
+      title:"ಕೋರ್ಟ್ ಕೇಸ್"
+
     },
     {
       id: 5,
       img: "https://i.pinimg.com/736x/5f/93/38/5f9338bbf17b820c59383734c03302b8.jpg",
+      title:"ಅಣ್ಣತಮ್ಮ ಅತ್ತೆ-ಸೊಸೆ ಕಿರಿಕಿರಿ"
+
     },
     {
       id: 6,
       img: "https://i.pinimg.com/736x/0b/ea/85/0bea85319c7aad2be9a17715c0726a20.jpg",
+      title:"ತಾಂತ್ರಿಕ ಸಮಸ್ಯೆ"
+
     },
     {
       id: 7,
       img: "https://i.pinimg.com/736x/62/b3/58/62b358e267e59d97cad63c49de2f8b44.jpg",
+      title:"ಗಂಡ ಹೆಂಡತಿ ಕಲಹ "
+
     },
     {
       id: 8,
       img: "https://i.pinimg.com/736x/e5/15/02/e51502ea14aa82845d23f7cefe17e766.jpg",
+      title:"ಕುಟುಂಬ ಸಮಸ್ಯೆ"
+
     },
   ];
 
@@ -162,7 +175,7 @@ export default function Carousel() {
 
                   {/* Business Name */}
                   <h1 className="montserrat font-extrabold text-4xl sm:text-5xl md:text-7xl leading-[1.05] tracking-tight text-[#fff8e9] drop-shadow-2xl">
-                    {business_name}
+                    {slide.title}
                   </h1>
 
                   {/* Gold line */}
